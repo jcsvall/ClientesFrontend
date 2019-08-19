@@ -1,0 +1,48 @@
+<h2 *ngIf="edicion; else nuevo">Edicion de cliente</h2>
+<ng-template #nuevo><h2>Nuevo de cliente</h2></ng-template>
+<div class="mat-elevation-z8 example-form">
+    <div style="margin-left: 2%; margin-top: 5%; margin-right: 2%; margin-bottom: 2%">
+        <br><br>
+        <!--form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Nombres" [(ngModel)]="objeto.nombres" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Apellidos">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Documento">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" routerLink="/clientes">Guardar</button>
+            <button mat-raised-button color="accent" routerLink="/clientes">Cancelar</button>
+
+        </form-->
+
+        <div>      
+        <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText [(ngModel)]="objeto.nombres" [ngModelOptions]="{standalone: true}" class="example-full-width">
+            <label for="float-input">Nombres</label>
+        </span><br>
+
+        <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText [(ngModel)]="objeto.apellidos" [ngModelOptions]="{standalone: true}" class="example-full-width">
+            <label for="float-input">Apellidos</label>
+        </span><br>
+
+        <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText [(ngModel)]="objeto.documento" [ngModelOptions]="{standalone: true}" class="example-full-width">
+            <label for="float-input">Documento</label>
+        </span><br>
+
+        <button mat-raised-button color="primary" routerLink="/clientes" *ngIf="edicion; else nuevoClie">Editar</button>
+        <ng-template #nuevoClie><button mat-raised-button color="primary" routerLink="/clientes">Crear</button></ng-template>
+        <button mat-raised-button color="accent" routerLink="/clientes">Cancelar</button>
+        
+        <br>
+        <br>
+    </div>
+    </div>
+</div>

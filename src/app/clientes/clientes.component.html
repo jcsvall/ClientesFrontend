@@ -1,0 +1,48 @@
+<p-messages [(value)]="msgs"></p-messages>
+<div class="mat-elevation-z8">
+<p-table #dt [value]="clientes" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Id</th>
+            <th>Nombres </th>
+            <th>Apellidos</th>
+            <th>Documento</th>
+            <th></th>
+        </tr> 
+        <tr>
+            <th></th>
+            <th><input pInputText type="text" (input)="dt.filter($event.target.value,'nombres', 'contains')"></th>
+            <th><input pInputText type="text" (input)="dt.filter($event.target.value,'apellidos', 'contains')"></th>
+            <th><input pInputText type="text" (input)="dt.filter($event.target.value,'documento', 'contains')"></th>
+            <th></th>
+        </tr> 
+               
+    </ng-template>
+    <ng-template pTemplate="body" let-cliente>
+        <tr>
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nombres}}</td>
+            <td>{{cliente.apellidos}}</td>
+            <td>{{cliente.documento}}</td>
+            <td>
+                <button pButton [routerLink]="['/clienteEdit',cliente.id]"><i class="pi pi-user-edit"></i></button>
+                <button pButton (click)="selectCarWithButton(cliente)"><i class="pi pi-times"></i></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+
+<br>
+<button mat-raised-button color="primary" [routerLink]="['/clienteEdit',0]"><i class="pi pi-plus"></i>Agregar</button>
+
+<!----p-dialog header="Godfather I" [(visible)]="display" [modal]="false" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+    
+        <p>The story</p>
+    
+        <p-footer>
+            <button type="button" pButton (click)="display=false" label="Yes"><i class="pi pi-check"></i></button>
+            <button type="button" pButton (click)="display=false" label="No" class="ui-button-secondary"><i class="pi pi-times"></i></button>
+        </p-footer>
+</p-dialog-->
